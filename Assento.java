@@ -2,15 +2,20 @@ public class Assento {
 
     private boolean[][] disponivel;
 
+
+    /*Construtor da Class */
     public Assento() {
         this.disponivel = new boolean[5][4];
 
+        /*Aqui vai andar a matriz e iniciar tudo true (tudo disponivel) */
         for(int i = 0; i < disponivel.length; i++){
             for(int j = 0; j < disponivel[i].length; j++){
                 this.disponivel[i][j] = true;
             }
         }
     }
+
+    /* Thiago E Davi, aqui temos o metodo que vai imprimir "O" caso disponivel o lugar (true) e "X" para lugar indisponivel (false) */
 
     public String mostraLugares(){
         String resultado = "";
