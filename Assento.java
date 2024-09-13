@@ -1,38 +1,44 @@
-import java.util.ArrayList;
-
 public class Assento {
 
-    private ArrayList<ArrayList<Boolean>> disponivel;
+    private boolean[][] disponivel;
 
-    /* Construtor da Classe */
+
+    /*Construtor da Class */
     public Assento() {
-        this.disponivel = new ArrayList<>();
+        this.disponivel = new boolean[5][4];
 
-        for (int i = 0; i < 5; i++) {
-            ArrayList<Boolean> linha = new ArrayList<>();
-            for (int j = 0; j < 4; j++) {
-                linha.add(true); 
+        /*Aqui vai andar a matriz e iniciar tudo true (tudo disponivel) */
+        for(int i = 0; i < disponivel.length; i++){
+            for(int j = 0; j < disponivel[i].length; j++){
+                this.disponivel[i][j] = true;
             }
-            this.disponivel.add(linha);
         }
     }
 
-    /* Método que vai imprimir "O" caso disponível o lugar (true) e "X" para lugar indisponível (false) */
-    public String mostraLugares() {
+    /* Thiago E Davi, aqui temos o metodo que vai imprimir "O" caso disponivel o lugar (true) e "X" para lugar indisponivel (false) */
+
+    public String mostraLugares(){
         String resultado = "";
-        for (ArrayList<Boolean> linha : disponivel) {
-            for (Boolean assento : linha) {
-                if (assento) {
+        for(int i = 0; i < disponivel.length; i++){
+            for(int j = 0; j < disponivel[i].length; j++){
+                if (disponivel[i][j]) {
                     resultado += "O";
-                } else {
+                } else{
                     resultado += "X";
                 }
             }
-            resultado += "\n";
+            resultado += "\n"; // Nova linha após cada fila
         }
         return resultado;
     }
 
-    /*Espaco para get e set */
+    public boolean getAssento(int linha, int coluna) {
+        return disponivel[linha][coluna];
+    }
+
+    
+    public void setAssento(int linha, int coluna, boolean status) {
+        this.disponivel[linha][coluna] = status;
+    }
 
 }
