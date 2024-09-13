@@ -8,11 +8,10 @@ public class Assento {
     public Assento() {
         this.disponivel = new ArrayList<>();
 
-        // Inicializa a estrutura com 5 linhas e 4 assentos por linha
         for (int i = 0; i < 5; i++) {
             ArrayList<Boolean> linha = new ArrayList<>();
             for (int j = 0; j < 4; j++) {
-                linha.add(true); // Assentos disponíveis inicialmente
+                linha.add(true); 
             }
             this.disponivel.add(linha);
         }
@@ -23,20 +22,17 @@ public class Assento {
         String resultado = "";
         for (ArrayList<Boolean> linha : disponivel) {
             for (Boolean assento : linha) {
-                resultado += (assento ? "O" : "X");
+                if (assento) {
+                    resultado += "O";
+                } else {
+                    resultado += "X";
+                }
             }
-            resultado += "\n"; // Nova linha após cada fila
+            resultado += "\n";
         }
         return resultado;
     }
 
-    // Método para obter o status de um assento específico
-    public boolean getAssento(int linha, int assento) {
-        return disponivel.get(linha).get(assento);
-    }
+    /*Espaco para get e set */
 
-    // Método para definir o status de um assento específico
-    public void setAssento(int linha, int assento, boolean status) {
-        this.disponivel.get(linha).set(assento, status);
-    }
 }
